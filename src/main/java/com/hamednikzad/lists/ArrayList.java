@@ -20,7 +20,7 @@ public class ArrayList {
 
     public ArrayList() {
         items = new Object[size];
-        capacity = 4;
+        capacity = 0;
     }
 
     public ArrayList(int c) throws Exception {
@@ -47,13 +47,15 @@ public class ArrayList {
         size++;
     }
 
-    private void checkCapacity(int s) throws Exception {
+    private void checkCapacity(int size) throws Exception {
         if (items.length >= size)
             return;
 
         int newCapacity = items.length == 0 ? 4 : items.length * 2;
-        if (newCapacity > MAXIMUM_CAPACITY) newCapacity = MAXIMUM_CAPACITY;
-        if (newCapacity < size) newCapacity = size;
+        if (newCapacity > MAXIMUM_CAPACITY)
+            newCapacity = MAXIMUM_CAPACITY;
+        if (newCapacity < size)
+            newCapacity = size;
 
         changeCapacity(newCapacity);
     }

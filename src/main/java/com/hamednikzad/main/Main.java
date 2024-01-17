@@ -10,5 +10,10 @@ public class Main {
         // Datastructures
 
         SimpleArray.waysToCreateAnArray();
+        try {
+            Lists.use();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
     }
 }
