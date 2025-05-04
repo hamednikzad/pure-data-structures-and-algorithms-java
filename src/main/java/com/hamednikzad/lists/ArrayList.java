@@ -1,8 +1,6 @@
 package com.hamednikzad.lists;
 
 import java.util.Arrays;
-import java.util.HashSet;
-import java.util.List;
 
 public class ArrayList {
     static final int MAXIMUM_CAPACITY = Integer.MAX_VALUE - 8;
@@ -25,7 +23,7 @@ public class ArrayList {
 
     public ArrayList(int c) throws Exception {
         if (c < 0)
-            throw new Exception("Capacity should be non negatice");
+            throw new Exception("Capacity should be non negative");
 
         items = new Object[c];
         capacity = c;

@@ -3,3 +3,7 @@ Data structures and algorithms implementation in pure Java!
 
 ### Data structures that have been implemented so far:
 - Arrays Introduction
+- Lists:
+  - Array List
+  - List
+  - 

@@ -1,8 +1,9 @@
 package com.hamednikzad.lists;
 
 import java.util.Arrays;
+import java.util.Iterator;
 
-public class List<T> {
+public class List<T> implements Iterable<T> {
     static final int MAXIMUM_CAPACITY = Integer.MAX_VALUE - 8;
     private T[] items;
     private int size;
@@ -75,8 +76,7 @@ public class List<T> {
         items[index] = value;
     }
 
-    public void clear()
-    {
+    public void clear() {
         if (size <= 0) return;
 
         Arrays.fill(items, 0);
@@ -93,8 +93,7 @@ public class List<T> {
             throw new Exception("out of range");
 
         if (size == items.length) CheckCapacity(size + 1);
-        if (index < size)
-        {
+        if (index < size) {
             items = Arrays.copyOfRange(items, index + 1, size - index);
         }
 
@@ -102,10 +101,9 @@ public class List<T> {
         size++;
     }
 
-    public int indexOf(T value)
-    {
+    public int indexOf(T value) {
         for (int i = 0; i < size; i++) {
-            if(items[i] == value)
+            if (items[i] == value)
                 return i;
         }
         return -1;
@@ -113,8 +111,7 @@ public class List<T> {
 
     public boolean remove(T item) throws Exception {
         int index = indexOf(item);
-        if (index >= 0)
-        {
+        if (index >= 0) {
             removeAt(index);
             return true;
         }
@@ -127,11 +124,28 @@ public class List<T> {
             throw new Exception("Out of range");
 
         size--;
-        if (index < size)
-        {
+        if (index < size) {
             items = Arrays.copyOfRange(items, index + 1, size - index);
         }
 
         items[size] = null;
+    }
+
+    @Override
+    public Iterator<T> iterator() {
+
+        return new Iterator<>() {
+            private int index = 0;
+
+            @Override
+            public boolean hasNext() {
+                return index < size && items[index] != null;
+            }
+
+            @Override
+            public T next() {
+                return items[index++];
+            }
+        };
     }
 }

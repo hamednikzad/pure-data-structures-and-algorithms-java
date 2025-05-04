@@ -11,7 +11,8 @@ public class Main {
     public static void main(String[] args) {
         // Datastructures
 
-        SimpleArray.waysToCreateAnArray();
+//        SimpleArray.waysToCreateAnArray();
+
         try {
             Lists.use();
         } catch (Exception e) {
